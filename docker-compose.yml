@@ -1,0 +1,14 @@
+version: "2"
+services:
+  plex:
+    container_name: plex
+    image: maxlbch/pms-docker
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Berlin
+      - PLEX_CLAIM=claim-KDCBxvMYzxDatjU2tewF
+    network_mode: host
+    volumes:
+      - ./database:/config
+      - ./transcode:/transcode
+      - /media/:/data
